@@ -1,0 +1,55 @@
+{
+    "name": "puff/redis",
+    "description": "Non-blocking Fiber Redis client For Puff",
+    "type": "library",
+    "keywords": [
+        "php",
+        "redis",
+        "client",
+        "fiber",
+        "async",
+        "puff"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "puff/async": "dev-main",
+        "puff/config": "dev-main",
+        "puff/di": "dev-main"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "files": [
+            "lib/puff.php"
+        ],
+        "psr-4": {
+            "Puff\\Redis\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Puff\\Redis\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "puff": {
+            "config": {
+                "redis.php": "config/redis.php"
+            },
+            "providers": [
+                "Puff\\Redis\\ServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyse": "phpstan analyse src lib config tests --level=8 --memory-limit=1G",
+        "test": "phpunit tests"
+    }
+}

@@ -1,0 +1,16 @@
+<?php
+
+/*
+ * PHP Fiber Framework
+ * https://github.com/php-puff/redis
+ * https://github.com/php-puff/redis/issues
+ * Copyright (c) Puff
+ */
+
+declare(strict_types=1);
+
+namespace Puff\Redis;
+
+final class RedisTimeoutException extends RedisException
+{
+}
