@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 use Puff\Config\Config;
 use Puff\Di\Container;
 use Puff\Redis\Client;
+use Puff\Redis\ClientInterface;
 use Puff\Redis\Facades\Redis as RedisFacade;
 use Puff\Redis\RedisException;
 use Puff\Redis\ServiceProvider;
@@ -40,6 +41,7 @@ final class ServiceProviderTest extends TestCase
 
         $client = \redis();
         self::assertSame($client, $container->get(Client::class));
+        self::assertSame($client, $container->get(ClientInterface::class));
         self::assertSame('tcp://[::1]:6380', $client->configuration()->uri());
         self::assertSame(2, $client->pool()->size());
         $client->close();

@@ -19,6 +19,7 @@ final class ServiceProvider extends BaseServiceProvider
     public function register(): void
     {
         $this->app->alias(Client::class, 'redis.client');
+        $this->app->alias(Client::class, ClientInterface::class);
         $this->app->singleton(Client::class, function (): Client {
             $config = $this->configuration();
             $values = $config?->get('redis.default', []) ?? [];

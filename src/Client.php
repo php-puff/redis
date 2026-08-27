@@ -14,7 +14,7 @@ namespace Puff\Redis;
 use Generator;
 use Throwable;
 
-final class Client
+final class Client implements ClientInterface
 {
     private const DEDICATED_COMMANDS = [
         'AUTH', 'SELECT', 'MULTI', 'EXEC', 'DISCARD', 'WATCH', 'UNWATCH',
